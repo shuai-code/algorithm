@@ -22,7 +22,7 @@ public class Solution {
 
     public static void main(String[] args) {
         int[] nums = {3, 1, 2, 10, 1};
-        System.out.println(Arrays.toString(runningSum(nums)));
+        System.out.println(Arrays.toString(runningSumWithOriginal(nums)));
     }
 
     /**
@@ -36,5 +36,16 @@ public class Solution {
             prevNum = res[i];
         }
         return res;
+    }
+
+
+    /**
+     * 和上一个方法思路一样， 在原数组上操作， 不申请新的数组
+     */
+    public static int[] runningSumWithOriginal(int[] nums) {
+        for (int i = 1; i < nums.length; i++) {
+            nums[i] = nums[i] + nums[i - 1];
+        }
+        return nums;
     }
 }
